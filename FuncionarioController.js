@@ -25,7 +25,6 @@ async function alterar(req, res) {
     const salario = req.body.salario;
     const contratacao = req.body.contratacao;
     const demissao = req.body.demissao;
-    const ativo = req.body.ativo;
 
     const idfuncionario = req.params.id;
 
@@ -35,5 +34,17 @@ async function alterar(req, res) {
     res.json(respostaBanco);
 }
 
+async function demitir(req, res) {
+    const ativo = false;
+        await Funcionario.update(
+            { ativo },
+            { where: { idfuncionario}});
+            
+        res.json(respostaBanco);
+    
+        res.send('Funcionario desligado com sucesso.')
 
-export default { listar, selecionar, inserir, alterar };
+}
+
+
+export default { listar, selecionar, inserir, alterar, demitir };
