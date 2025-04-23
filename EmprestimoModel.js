@@ -3,7 +3,7 @@ import banco from "../banco.js";
 
 //mapeamento da model Autor
 export default banco.define(
-    'autor',
+    'emprestimo',
     {
         // Model attributes are defined here
         idemprestimo: {
